@@ -3,6 +3,7 @@ title: About Wordpress
 date: "2021-04-26T20:40:32.169Z"
 updated: "2021-05-02T04:12:03.284Z"
 written_by: Aurnab I.
+bannerImg: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
 ---
 
 WordPress (WP, WordPress.org) is a free and open-source content management system

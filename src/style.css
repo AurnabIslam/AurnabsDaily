@@ -373,11 +373,19 @@ a:focus {
 .upd{
   color: #3CB371;
   font-size: 0.85rem;
-
+  font-weight: bolder;
+}
+.postImg{
+  max-width: 100%;
 }
 
+.bannerprev{
+  width: 320px;
+  height: 340px;
+  border-radius: 100%;
+  border: solid var(--highlights);
 
-
+}
 
 
 /* Media queries */

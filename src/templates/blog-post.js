@@ -21,7 +21,9 @@ const BlogPostTemplate = ({ data, location }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
+       
         <header>
+          <img src={post.frontmatter.bannerImg} alt="" className="postImg"></img>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           
            <div className="subinfo"> 
@@ -93,6 +95,7 @@ export const pageQuery = graphql`
         updated(formatString: "MMMM DD, YYYY")
         description
         written_by
+        bannerImg
         
       }
     }

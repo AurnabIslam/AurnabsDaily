@@ -81,6 +81,7 @@ module.exports = {
                   date: node.frontmatter.date,
                   updated: node.frontmatter.updateddate,
                   written_by: node.frontmatter.written_by,
+                  bannerImg: node.frontmatter.bannerImg,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
                   custom_elements: [{ "content:encoded": node.html }],

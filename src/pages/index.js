@@ -31,6 +31,8 @@ const BlogIndex = ({ data, location }) => {
           <ol style={{ listStyle: `none` }}>
             {posts.map(post => {
               const title = post.frontmatter.title || post.fields.slug
+              const bannerImg = post.frontmatter.bannerImg  
+
 
               return (
                 <li key={post.fields.slug}>
@@ -39,6 +41,8 @@ const BlogIndex = ({ data, location }) => {
                     itemScope
                     itemType="http://schema.org/Article"
                   >
+              
+                    {bannerImg && <img src= { (bannerImg) } alt="" className="bannerprev"/>}
                     <header>
                       <h2>
                         <Link to={post.fields.slug} itemProp="url">
@@ -86,6 +90,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          bannerImg
         }
       }
     }
