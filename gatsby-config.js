@@ -5,7 +5,7 @@ module.exports = {
       name: `Aurnab Islam,`,
       summary: `A Web Designer/dev. based in Toronto`,
     },
-    description: `A little myself and my life `,
+    description: `A little about me and my interests `,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
       twitter: `AranArnab`,
@@ -79,7 +79,8 @@ module.exports = {
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
                   date: node.frontmatter.date,
-                  wtitten_by: node.frontmatter.written_by,
+                  updated: node.frontmatter.updateddate,
+                  written_by: node.frontmatter.written_by,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
                   custom_elements: [{ "content:encoded": node.html }],

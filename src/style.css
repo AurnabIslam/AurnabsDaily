@@ -344,6 +344,38 @@ a:focus {
 }
 
 
+.subinfo{
+  background-color: rgb(52, 59, 65);
+  display: contents;
+  
+  
+}
+
+.sbd{
+  display: inline-flex;
+  color: rgb(255, 255, 255);
+  font-size: small;
+  border-bottom:solid white;
+  margin:0%;
+  padding-left: 0.5rem;
+  
+}
+
+.sb{
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  margin: auto;
+  font-size: smaller;
+  margin-left: 0.7rem;
+  border-bottom: solid white;
+  
+}
+.upd{
+  color: #3CB371;
+  font-size: 0.85rem;
+
+}
+
 
 
 

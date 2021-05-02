@@ -1,7 +1,8 @@
 ---
 title: About Wordpress
 date: "2021-04-26T20:40:32.169Z"
-written_by: "Aurnab Islam"
+updated: "2021-05-02T04:12:03.284Z"
+written_by: Aurnab I.
 ---
 
 WordPress (WP, WordPress.org) is a free and open-source content management system
