@@ -1,9 +1,10 @@
-import  React, {useState} from "react"
+import  React, { useState } from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+
 
 const BlogIndex = ({ data, location }) =>
 {
@@ -11,21 +12,24 @@ const BlogIndex = ({ data, location }) =>
   const posts = data.allMarkdownRemark.nodes
   
 
-  const [search,setSearch] = useState({
+  const [search, setSearch] = useState({
      query:'',
-     FilteredPosts: []
+     filteredPosts: posts
   })
   const handleSearch = (event) =>
-   {
+  {
 
-      const QueryStr = event.target.value
-      const postAr= post.filter(post => post.frontmatter.title.toUpperCase().includes(QueryStr.toUpperCase()))
-   }
-   setSearch({
-    query: QueryStr,
-    FilteredPosts: postAr
- })
-
+      const queryStr = event.target.value
+      const postsAr = posts.filter(post => 
+        post.frontmatter.title.toUpperCase().includes(queryStr.toUpperCase()) ||
+        post.rawMarkdownBody.toUpperCase().includes(queryStr.toUpperCase())
+      ) 
+        setSearch({
+          query: queryStr,
+          filteredPosts: postsAr
+        })
+  }
+  
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
@@ -51,7 +55,7 @@ const BlogIndex = ({ data, location }) =>
        value={search.query} />
         
           <ol style={{ listStyle: `none` }}>
-            {posts.map(post => {
+            {search.filteredPosts.map(post => {
 
               const title = post.frontmatter.title || post.fields.slug
               const bannerImg = post.frontmatter.bannerImg  
@@ -88,7 +92,7 @@ const BlogIndex = ({ data, location }) =>
             })}
           </ol>
 
-          <div className="storylog"> {posts.length} {(posts.lenght) === 1 ? 'Story' : 'Stories' } to read</div>
+          <div className="storylog"> {search.filteredPosts.length} {(search.filteredPosts.lenght) === 1 ? 'Story' : 'Stories' } to read</div>
 
     </Layout>
   )
@@ -106,6 +110,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         excerpt
+        rawMarkdownBody
         fields {
           slug
         }

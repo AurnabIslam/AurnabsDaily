@@ -20,10 +20,10 @@ const Layout = ({ location, title, children }) => {
       <header className="global-header">{header}</header>
 
 
-      <nav className="navg">
-        <ul>
-          <li className="nv"><Link to="/">Home</Link></li>
-          <li className="nv"><Link to="/">About</Link></li>
+      <nav>
+        <ul className="nav">
+          <li className="navg"><Link to="/">Blog</Link></li>
+          <li className="navg"><Link to="/">About</Link></li>
 
         </ul>
       </nav>
