@@ -5,17 +5,26 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const BlogIndex = ({ data, location }) => {
+const BlogIndex = ({ data, location }) =>
+{
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
   
 
-  const [search,setSearch] = useState('')
+  const [search,setSearch] = useState({
+     query:'',
+     FilteredPosts: []
+  })
+  const handleSearch = (event) =>
+   {
 
-
-  const handleSearch= (event)=> {
-    setSearch(event.arget.value)
-  }
+      const QueryStr = event.target.value
+      const postAr= post.filter(post => post.frontmatter.title.toUpperCase().includes(QueryStr.toUpperCase()))
+   }
+   setSearch({
+    query: QueryStr,
+    FilteredPosts: postAr
+ })
 
   if (posts.length === 0) {
     return (
@@ -36,10 +45,14 @@ const BlogIndex = ({ data, location }) => {
       <Seo title="All posts" />
       <Bio />
 
-      <input type="search" placeholder="search by title" onChange={handleSearch} value={search} />
+      <input type="search" 
+      placeholder="search by title"
+       onChange={handleSearch} 
+       value={search.query} />
         
           <ol style={{ listStyle: `none` }}>
             {posts.map(post => {
+
               const title = post.frontmatter.title || post.fields.slug
               const bannerImg = post.frontmatter.bannerImg  
 
