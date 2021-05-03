@@ -1,4 +1,4 @@
-import * as React from "react"
+import  React, {useState} from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
@@ -8,6 +8,14 @@ import Seo from "../components/seo"
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
+  
+
+  const [search,setSearch] = useState('')
+
+
+  const handleSearch= (event)=> {
+    setSearch(event.arget.value)
+  }
 
   if (posts.length === 0) {
     return (
@@ -27,6 +35,8 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
       <Bio />
+
+      <input type="search" placeholder="search by title" onChange={handleSearch} value={search} />
         
           <ol style={{ listStyle: `none` }}>
             {posts.map(post => {

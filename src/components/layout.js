@@ -13,17 +13,20 @@ const Layout = ({ location, title, children }) => {
         <Link to="/">{title}</Link>
       </h1>
     )
- // } else {
-  //  header = (
-   //   <Link className="header-link-home" to="/">
-    //    {title}
-   //   </Link>
-    //)
   }
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
       <header className="global-header">{header}</header>
+
+
+      <nav className="navg">
+        <ul>
+          <li className="nv"><Link to="/">Home</Link></li>
+          <li className="nv"><Link to="/">About</Link></li>
+
+        </ul>
+      </nav>
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with

@@ -376,16 +376,23 @@ a:focus {
   font-weight: bolder;
 }
 .postImg{
-  max-width: 100%;
+  display: block;
+  margin: auto;
+  max-width: 30%;
+  border-radius: 100%;
+
+
 }
 
 .bannerprev{
+  margin-left: 5rem;
   width: 320px;
   height: 340px;
   border-radius: 100%;
   border: solid var(--highlights);
 
 }
+
 
 
 /* Media queries */
